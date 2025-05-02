@@ -1,5 +1,3 @@
-from pathlib import Path
-
 readme_content = """<!-- Open Graph / Twitter Card -->
 <meta property="og:title" content="Modular CV Pipeline – Flask + YOLOv11"/>
 <meta property="og:image" content="images/cv_pipeline-demo.gif"/>
