@@ -39,7 +39,7 @@ Upload any picture → get back richly-annotated detections **and** the raw JSON
 4. **Server-side overlay** – Bounding-box renderer with class labels & confidences.
 5. **100 % JSON-serialisable** – All numpy types converted to native floats/ints, ensuring seamless downstream use.
 6. **One-command Docker** – Slim base image (~400 MB) with only the OS libs you need.
-7. **Roadmap baked in** – Shows forward-thinking mindset for hiring managers.
+7. **Roadmap baked in** 
 
 ---
 
