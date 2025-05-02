@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CV-Pipeline Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .obj-card {border-left:.25rem solid #0d6efd}
+    pre{background:#f8f9fa;padding:1rem;border-radius:.5rem}
+  </style>
+</head>
+<body class="bg-light">
+  <main class="container py-5">
+    <h1 class="mb-4">Detection Results</h1>
+
+    <div class="text-center mb-4">
+      <img src="{{ image_url }}" class="img-fluid rounded shadow-sm" alt="annotated result">
+    </div>
+
+    <h2 class="h4 mb-3">Objects</h2>
+
+    {% if objects %}
+      {% for obj in objects %}
+        <div class="card obj-card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ obj.class_label if obj.class_label else ('ID ' ~ obj.class_id) }}
+            </h5>
+            <p class="card-text mb-1">Confidence: {{ "%.2f"|format(obj.confidence) }}</p>
+            {% if obj.info_link %}
+              <a href="{{ obj.info_link }}" target="_blank" class="card-link">Learn more</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No objects detected.</p>
+    {% endif %}
+
+    <details class="mt-4">
+      <summary>Raw JSON</summary>
+      <pre>{{ raw_json }}</pre>
+    </details>
+
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">Analyze another</a>
+  </main>
+</body>
+</html>

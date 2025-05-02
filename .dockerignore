@@ -1,0 +1,48 @@
+###############################################################################
+#  Docker build context exclusions for the “cv_pipeline” Flask CV demo
+#  – keeps the image lean while still shipping everything the app needs.      #
+###############################################################################
+
+# ─── 1. Python virtual-envs (host-only) ──────────────────────────────────────
+.venv*/
+env*/
+venv*/
+
+# ─── 2. Python byte-code / build artefacts ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+*.egg-info/
+
+# ─── 3. Local/host secrets & overrides (never bake these into images) ───────
+*.env
+*.env.*
+.envrc
+
+# ─── 4. IDE / OS clutter ────────────────────────────────────────────────────
+.DS_Store
+*.log
+*.tmp
+*.swp
+.idea/
+.vscode/
+
+# ─── 5. VCS & CI metadata ───────────────────────────────────────────────────
+.git/
+.github/
+
+# ─── 6. Tests – exclude code but keep demo asset for quick sanity-check ─────
+tests/**
+!tests/assets/
+!tests/assets/sample.png     # retain sample image only
+
+# ─── 7. Runtime-generated artefacts – keep dirs, ship them empty ────────────
+# NOTE: a zero-byte placeholder (e.g. .gitkeep) should live in each folder
+#       so that the directory itself makes it into the build context.
+app/static/uploads/*
+app/static/results/*
+!app/static/uploads/.gitkeep
+!app/static/results/.gitkeep

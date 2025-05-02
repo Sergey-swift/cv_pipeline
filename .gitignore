@@ -1,0 +1,68 @@
+###############################################################################
+#  .gitignore for “cv_pipeline” – Python / Flask / CV demo project
+#  Keeps the repo clean while still shipping all code, HTML templates, and
+#  lightweight assets needed for local dev & CI.  Heavy model weights and
+#  runtime artefacts are excluded.                                             #
+###############################################################################
+
+# ─── 1. Python build artefacts ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so            # compiled C-extensions
+*.egg-info/
+.Python
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.cache/
+
+# ─── 2. Virtual environments (leave requirements.txt in repo) ───────────────
+.venv*/
+env*/
+venv*/
+
+# ─── 3. Packaging / distribution folders ────────────────────────────────────
+dist/
+build/
+
+# ─── 4. Local secrets & environment overrides (never commit credentials) ────
+*.env
+*.env.*
+.envrc
+
+# ─── 5. Editor / OS clutter ─────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+*.swp
+*.tmp
+*.log
+.idea/
+.vscode/
+
+# ─── 6. Flask instance / DB files (generated at runtime) ────────────────────
+instance/
+*.db
+*.sqlite3
+
+# ─── 7. Heavy model weights  ────────────────────────────────────────────────
+#       Keep these out of Git; instruct users to download via README.
+cv_core/models/weights/*.pt
+cv_core/models/weights/*.pth
+
+# ─── 8. Tests – keep demo assets but skip code / caches  ────────────────────
+tests/**
+!tests/assets/
+!tests/assets/sample.png      # small demo image stays
+
+# ─── 9. User-generated uploads & annotated results  ─────────────────────────
+app/static/uploads/*
+app/static/results/*
+!app/static/uploads/.gitkeep
+!app/static/results/.gitkeep
+
+# ─── 10. VCS / CI metadata ──────────────────────────────────────────────────
+.git/
+.github/

@@ -1,0 +1,56 @@
+Modular CV Pipeline – THIRD-PARTY NOTICES
+========================================
+
+This project is distributed under the MIT License (see LICENSE).  
+The third-party software listed below is included in source or binary form and
+is subject to its own license terms.
+
+───────────────────────────────────────────────────────────────────────────────
+| Component / PyPI package            | Version* | License      | Upstream   |
+| ----------------------------------- | -------- | ------------ | ---------- |
+| **ultralytics** (YOLO core library) | 8.3.121  | AGPL-3.0 ✦¹ | <https://github.com/ultralytics/ultralytics> |
+| **YOLO v11n pretrained weights**    | 1.0      | CC-BY-NC-4.0 ✧² | <https://github.com/ultralytics/assets/releases> |
+| PyTorch                             | 2.2.2    | BSD-style    | <https://github.com/pytorch/pytorch> |
+| TorchVision                         | 0.17.2   | BSD-style    | <https://github.com/pytorch/vision> |
+| OpenCV-Python                       | 4.11.0   | Apache-2.0   | <https://github.com/opencv/opencv-python> |
+| NumPy                               | 1.26.4   | BSD-style    | <https://numpy.org> |
+| Pandas                              | 2.1.4    | BSD-style    | <https://pandas.pydata.org> |
+| SciPy                               | 1.15.2   | BSD-style    | <https://scipy.org> |
+| Flask                               | 2.3.3    | BSD-3-Clause | <https://palletsprojects.com/p/flask/> |
+| Gunicorn                            | 21.2.0   | MIT          | <https://gunicorn.org> |
+| Rich                                | 13.9.4   | MIT          | <https://github.com/Textualize/rich> |
+| tqdm                                | 4.67.1   | MPL-2.0      | <https://github.com/tqdm/tqdm> |
+| Pillow                              | 10.4.0   | HPND         | <https://python-pillow.org> |
+| python-magic                        | 0.4.27   | MIT          | <https://github.com/ahupp/python-magic> |
+| Requests                            | 2.32.3   | Apache-2.0   | <https://requests.readthedocs.io> |
+| Markdown-it-py                      | 3.0.0    | MIT          | <https://github.com/executablebooks/markdown-it-py> |
+| Jinja2                              | 3.1.6    | BSD-3-Clause | <https://palletsprojects.com/p/jinja/> |
+| typing-extensions                   | 4.13.2   | PSF          | <https://github.com/python/typing_extensions> |
+| …plus transitive deps (Click, Werkzeug, certifi, urllib3, etc.) – all permissive OSS |
+
+*Version numbers match the locked values in `dev-lock.txt` / `requirements.txt`.
+
+✦¹ **Ultralytics library (AGPL-3.0)**  
+   The container installs the package from PyPI. We call it at runtime; no code
+   is vendored or modified.
+
+✧² **YOLO v11n weights (CC-BY-NC-4.0)**  
+   Redistributed under Creative Commons for non-commercial use. Commercial
+   deployments should obtain a **pro/commercial license** from Ultralytics.
+
+───────────────────────────────────────────────────────────────────────────────
+Model-Specific Attributions
+---------------------------
+* **FaceNet** implementation follows Google’s FaceNet paper (weights *not*
+  bundled; supplied by the user).
+* **Car classifier** & **road-sign OCR** use TorchVision backbones with
+  custom weights provided by end-users under their own terms.
+
+Dataset Acknowledgements
+------------------------
+The sample image `tests/assets/sample.png` is public-domain (Unsplash).
+
+NOTICE
+------
+All trademarks are property of their respective owners.  
+If any attribution is missing or incorrect, please open an issue.

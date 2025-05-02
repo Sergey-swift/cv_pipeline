@@ -1,0 +1,53 @@
+# --------------------------------------------
+# Requirements for Modular CV-Pipeline Demo
+# Validated on Python 3.10 / 3.11  •  CUDA 11.8
+# --------------------------------------------
+
+# NOTE: the extra index below installs the official CUDA 11.8 wheels.
+#       Delete it (and the “+cu118” tags) if you need **CPU-only** builds.
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+
+# ── Web layer ────────────────────────────────────────────────────────────────
+Flask>=2.3,<3.0                     # core web framework
+gunicorn>=21.2,<22.0                # prod-grade WSGI server
+
+
+# ── Build / utility essentials (required by Ultralytics) ─────────────────────
+setuptools>=68,<70                  # provides pkg_resources
+wheel>=0.42,<0.45                   # good practice for native wheels
+
+
+# ── Deep-learning stack (CUDA/CPU wheels must match) ─────────────────────────
+torch==2.2.2+cu118                  # exact pin for reproducibility
+torchvision==0.17.2+cu118           # companion build for torch 2.2.2
+
+
+# ── CV / inference toolchain ─────────────────────────────────────────────────
+ultralytics>=8.3.0,<9.0             # YOLOv11 wrapper, tested w/ torch 2.2
+opencv-python-headless>=4.8,<5.0    # GUI-free OpenCV (Docker-friendly)
+numpy>=1.23,<1.27                   # ABI-compatible with torch 2.2
+pillow>=9.5,<11.0                   # Pillow used by torchvision & Flask
+python-magic>=0.4.27,<0.5           # MIME sniffing for secure uploads
+python-dotenv>=1.0,<2.0             # .env overrides for config paths
+
+
+# ── Ultralytics transitive deps (explicit for repeatability) ─────────────────
+pandas>=1.5,<2.2
+PyYAML>=6.0,<7.0
+matplotlib>=3.7,<4.0
+seaborn>=0.12,<0.14                 # plotting utils pulled by Ultralytics
+tqdm>=4.66,<5.0                     # progress bars (Ultralytics / torch.hub)
+requests>=2.31,<3.0
+rich>=13.7,<14.0                    # pretty console logging
+
+
+# ── Testing / linting (optional but recommended) ─────────────────────────────
+pytest>=7.4,<8.0
+pytest-cov>=4.1,<5.0
+ruff>=0.4,<0.5                      # lightning-fast linter
+
+
+# ── Typing shim (Python ≤ 3.10) ─────────────────────────────────────────────
+typing-extensions>=4.8; python_version < "3.11"
+
