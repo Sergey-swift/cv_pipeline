@@ -1,4 +1,4 @@
-readme_content = """<!-- Open Graph / Twitter Card -->
+<!-- Open Graph / Twitter Card -->
 <meta property="og:title" content="Modular CV Pipeline – Flask + YOLOv11"/>
 <meta property="og:image" content="images/cv_pipeline-demo.gif"/>
 <meta name="twitter:card" content="summary_large_image"/>
